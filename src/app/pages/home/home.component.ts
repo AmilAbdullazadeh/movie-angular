@@ -8,16 +8,28 @@ import { MoviesService } from '../../services/movies.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  movies: IMovie[] = []
+  popularMovies: IMovie[] = []
+  upcomingMovies: IMovie[] = []
+  topRatedMovies: IMovie[] = []
 
   constructor(
     private moviesService: MoviesService
   ) { }
 
   ngOnInit(): void {
-    this.moviesService.getMovies()
+    this.moviesService.getMovies('popular')
       .subscribe((response: any) => {
-        this.movies = response.results
+        this.popularMovies = response.results
+      })
+
+    this.moviesService.getMovies('upcoming')
+      .subscribe((response: any) => {
+        this.upcomingMovies = response.results
+      })
+
+    this.moviesService.getMovies('top_rated')
+      .subscribe((response: any) => {
+        this.topRatedMovies = response.results
       })
   }
 
