@@ -11,6 +11,15 @@
 //! prime flex
 @import "~primeflex/primeflex.css";
 
+//! prime ng
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+body {
+  color: $white;
+}
+
 
 .app-icon {
   font-family: 'Material Icons';
