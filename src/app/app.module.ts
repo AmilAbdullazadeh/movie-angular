@@ -20,9 +20,10 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { ItemsBannerComponent } from './components/items-banner/items-banner.component';
 import { ItemComponent } from './components/item/item.component';
+import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, MoviesComponent, MovieComponent, SliderComponent, ItemsBannerComponent, ItemComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, MoviesComponent, MovieComponent, SliderComponent, ItemsBannerComponent, ItemComponent, VideoEmbedComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, PaginatorModule, TabViewModule],
   providers: [],
   bootstrap: [AppComponent],

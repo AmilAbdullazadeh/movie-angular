@@ -14,3 +14,36 @@
     }
   }
 }
+
+.poster {
+  max-width: 100%;
+}
+
+.overview {
+  line-height: 1.5;
+}
+
+.stat {
+  display: flex;
+  margin-bottom: 15px;
+  .label {
+    width: 150px;
+    font-weight: bold;
+  }
+
+  .value {
+    color: $primaryColor;
+  }
+}
+
+.actor {
+  padding: 10px;
+  img {
+    width: 100%;
+  }
+  span {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+  }
+}
