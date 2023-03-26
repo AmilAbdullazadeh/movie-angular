@@ -62,14 +62,29 @@
         </div>
       </p-tabPanel>
       <p-tabPanel header="Photos">
-        <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
-          atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
-          sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
-          facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
-          impedit quo minus.
-        </p>
+        <div class='grid'>
+          <ng-container *ngFor='let movieImage of movieImages?.backdrops' >
+            <div class='col-12 md:col-4 lg:col-4'>
+              <p-image
+                [src]="'https://image.tmdb.org/t/p/w780/' + movieImage.file_path"
+                alt="Image"
+                width="100%"
+                [preview]="true"
+              ></p-image>
+            </div>
+          </ng-container>
+        </div>
       </p-tabPanel>
     </p-tabView>
+
+    <p-carousel [numVisible]="5" *ngIf='movieCredits' [value]='movieCredits.cast' >
+      <ng-template let-actor pTemplate="item">
+        <div *ngIf='actor.profile_path' class="actor">
+          <img [src]="'https://image.tmdb.org/t/p/w780/' + actor.profile_path" [alt]="actor.name" />
+          <span>{{ actor.name }}</span>
+        </div>
+      </ng-template>
+    </p-carousel>
+
   </div>
 </ng-container>

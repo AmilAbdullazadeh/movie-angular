@@ -48,3 +48,49 @@ export interface IMovieVideo {
   published_at: string;
   id: string;
 }
+
+export interface IMovieImages {
+  id: number
+  backdrops: IBackdrop[]
+  posters: IPoster[]
+}
+
+export interface IBackdrop {
+  aspect_ratio: number
+  file_path: string
+  height: number
+  iso_639_1: any
+  vote_average: number
+  vote_count: number
+  width: number
+}
+
+export interface IPoster {
+  aspect_ratio: number
+  file_path: string
+  height: number
+  iso_639_1: string
+  vote_average: number
+  vote_count: number
+  width: number
+}
+
+export interface IMovieCredits {
+  id: number
+  cast: ICast[]
+}
+
+export interface ICast {
+  adult: boolean
+  gender: number
+  id: number
+  known_for_department: string
+  name: string
+  original_name: string
+  popularity: number
+  profile_path: string
+  cast_id: number
+  character: string
+  credit_id: string
+  order: number
+}
