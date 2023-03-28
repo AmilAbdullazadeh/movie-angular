@@ -36,6 +36,14 @@ export class MoviesService {
     return this.http.get<IMovie>(`${this.baseUrl}${id}?api_key=${this.apiKey}`)
   }
 
+  getMovieSimilar(id: string) {
+    return this.http.get<IMovieDto>(`${this.baseUrl}${id}/similar?api_key=${this.apiKey}`).pipe(
+      switchMap((res) => {
+        return of(res.results.slice(0, 12))
+      })
+    )
+  }
+
   getMovieVideos(id: string) {
     return this.http.get<IMovieVideoDto>(`${this.baseUrl}${id}/videos?api_key=${this.apiKey}`).pipe(
       switchMap((res) => {
@@ -53,9 +61,17 @@ export class MoviesService {
   }
 
   getMovieGenres() {
-    return this.http.get<IGenreDto>(`${this.mainUrl}/genre/movie/list?api_key=${this.apiKey}`).pipe(
+    return this.http.get<IGenreDto>(`${this.mainUrl}genre/movie/list?api_key=${this.apiKey}`).pipe(
       switchMap((res) => {
         return of(res.genres)
+      })
+    )
+  }
+
+  getMovieByGenres(id: string, page: number) {
+    return this.http.get<IMovieDto>(`${this.mainUrl}discover/movie?with_genres=${id}&page=${page}&api_key=${this.apiKey}`).pipe(
+      switchMap((res) => {
+        return of(res.results)
       })
     )
   }
