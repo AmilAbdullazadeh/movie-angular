@@ -12,6 +12,7 @@ import { take } from 'rxjs';
 export class MoviesComponent implements OnInit{
   movies: IMovie[] = [];
   genreId: string = ''
+  searchValue: string | null = ''
 
   constructor(private moviesService: MoviesService, private route: ActivatedRoute) {}
 
@@ -26,8 +27,8 @@ export class MoviesComponent implements OnInit{
     })
   }
 
-  getPagedMovies(page: number) {
-    this.moviesService.searchMovies(page).subscribe((movies) => {
+  getPagedMovies(page: number, searchValues?: string) {
+    this.moviesService.searchMovies(page, searchValues).subscribe((movies) => {
       this.movies = movies
     })
   }
@@ -43,7 +44,12 @@ export class MoviesComponent implements OnInit{
     if (this.genreId) {
       this.getMoviesByGenre(this.genreId, pageNumber)
     } else {
-      this.getPagedMovies(pageNumber)
+      this.searchValue ? this.getPagedMovies(pageNumber, this.searchValue) : this.getPagedMovies(pageNumber)
     }
   }
+
+  searchChanged() {
+    this.searchValue && this.getPagedMovies(1, this.searchValue)
+  }
+
 }

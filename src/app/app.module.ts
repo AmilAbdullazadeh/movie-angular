@@ -26,7 +26,19 @@ import { VideoEmbedComponent } from './components/video-embed/video-embed.compon
 import { GenresComponent } from './pages/genres/genres.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, MoviesComponent, MovieComponent, SliderComponent, ItemsBannerComponent, ItemComponent, VideoEmbedComponent, GenresComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    MoviesComponent,
+    MovieComponent,
+    SliderComponent, 
+    ItemsBannerComponent,
+    ItemComponent,
+    VideoEmbedComponent,
+    GenresComponent
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, PaginatorModule, TabViewModule, ImageModule, CarouselModule],
   providers: [],
   bootstrap: [AppComponent],
